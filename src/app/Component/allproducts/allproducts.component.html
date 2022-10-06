@@ -1,0 +1,93 @@
+<app-show></app-show><br>
+<div  class="product-display-area">
+    <h3>All Products</h3>
+    <table class="table">  
+        <tr *ngIf="allProducts.length<1 && !isFetching">
+          <td colspan="5">No Products Avilable!</td>
+        </tr>
+        <tr *ngIf="errorMessage">
+          <td colspan="5">{{errorMessage}}</td>
+        </tr>
+        <tr *ngIf="isFetching && !errorMessage">
+          <td colspan="5">loading.....</td>
+        </tr>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Desciption</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr *ngFor="let prod of allProducts ; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{prod.pName}}</td>
+          <td>{{prod.desc}}</td>
+          <td>${{prod.price}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteProduct(prod.id)">Delete</button></td>
+          <td><button type="button" class="btn btn-success"(click)="onEditClicked(prod.id)" routerLink="edit">Edit</button></td>
+          <!--  -->
+        </tr>
+      </tbody>
+    </table>
+    
+    <input class="btn btn-primary" type="submit" value="Fetch Product" (click)="onProductFetch()">
+    <button type="button" class="btn btn-danger" (click)="onDeleteAllProduct()">Delete All Products</button>
+  </div>   
+
+
+  <!-- <div class="bac-cre">
+  <div class="{{classModee ? 'off':'on'}}"  >
+ 
+    <h3>Update Prodeuct</h3>
+    <form class="cre-fro" #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
+      <div class="creat-clo">
+        <label>Product Name</label>
+        <input type="text" name="pName" ngModel>
+      </div>
+      <div class="creat-clo">
+        <label>Product Desciption</label>
+        <input type="text" name="desc" ngModel>
+      </div>
+      <div class="creat-clo">
+        <label>Product Price</label>
+        <input  type="text"name="price" ngModel>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Update product">
+      <button class="btn btn-danger" (click)="onDone()" >Done</button>
+    </form>
+  </div></div> -->
+<div class="{{classModee ? 'off':'on'}}">
+  <div class="container" style="display: flex; justify-content: center;
+  align-items: center; margin-top: 2vh;">
+   
+        <div class="col-md-6 card"style=" width: 500px; height: 400px;">
+            <div class="">
+                <div class="text-center">
+                    <h1>Update Prodeuct</h1>
+                </div>
+                <form>
+                    <form class="" #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
+                        <div class="mb-3">
+                          <label >Product Name</label>
+                          <input type="text" name="pName"  class="form-control"  ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label>Product Descirptio</label>
+                            <input type="text"name="desc" class="form-control" aria-describedby="emailHelp"ngModel>
+                          </div>
+                          <div class="mb-3">
+                            <label>Product Price</label>
+                            <input type="text"name="price" class="form-control"  aria-describedby="emailHelp"ngModel>
+                          </div>
+                          <input class="btn btn-primary" type="submit" value="Update product">
+                          <button class="btn btn-danger" (click)="onDone()" >Done</button>
+                      </form>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

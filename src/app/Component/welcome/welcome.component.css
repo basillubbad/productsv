@@ -1,0 +1,26 @@
+.welcome{
+    height: 100vmin;
+    width: 100vm;
+    background: hsla(205, 46%, 30%, 1);
+    background: linear-gradient(90deg, rgb(52, 97, 129)0%, rgb(102, 76, 155)100%);
+
+/* background-color: blueviolet; */
+}
+h1{
+    color: aliceblue; 
+      margin-top: 22vh;
+}
+h5{
+    color: aliceblue;  
+}
+.col-wel{
+    display: flex;
+    text-align: center;
+ 
+    flex-direction: column;
+}
+a{
+    color: rgb(247, 171, 72);
+    text-decoration: none;
+    margin-top: 2vh;
+}
